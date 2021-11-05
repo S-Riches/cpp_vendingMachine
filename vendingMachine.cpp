@@ -1,37 +1,40 @@
 #include <iostream>
 #include <stdlib.h>
 #include <vector>
-#include <array>
 
 
-void generateItems(int items)
+//vector type function
+std::vector<int> generateItems(int items)
 {
     int x;
+    //define vector
     std::vector<int> col;
-    int tempCol[items];
-
         for(int i = 0; i < items; i++)
         {
+            //generate a random number from 1 - 100
             x = std::rand() % 100 + 1;
-            col.push_back(x);
-            tempCol.
+            col.push_back(x);  
         }
         // possibly put in a loop to check if there is a re-occuring number present in the lists
-        for(int i = 0; i != col.size(); ++i){
+        for(int i = 0; i != col.size(); i++){
             std::cout << col.at(i) << " ";
         }
-    std::cout << std::endl;
+
+    //return the vector
+    return col;
 }
 
 void generateVector(int rows, int items)
 {
-    int vectorHolder[rows];
+    std::vector<std::vector<int>> holder;
     // generate x rows
     for(int i = 0; i < rows; i++)
     {
         //generate x items in each row
-        generateItems(items);
+        holder.push_back(generateItems(items));
+        std::cout << holder[i][i] << " \n";
     }
+    
 }
 
 int main()
